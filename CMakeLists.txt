@@ -118,7 +118,16 @@ add_subdirectory(Thirdparty/g2o)
 add_subdirectory(Thirdparty/DBoW2)
 add_subdirectory(Thirdparty/Sophus)
 
-target_link_libraries(${PROJECT_NAME}
+target_include_directories(${PROJECT_NAME} PUBLIC
+${PROJECT_SOURCE_DIR}
+${PROJECT_SOURCE_DIR}/include
+${PROJECT_SOURCE_DIR}/include/CameraModels
+${PROJECT_SOURCE_DIR}/Thirdparty/Sophus
+${EIGEN3_INCLUDE_DIR}
+${Pangolin_INCLUDE_DIRS}
+)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
 ${Pangolin_LIBRARIES}
